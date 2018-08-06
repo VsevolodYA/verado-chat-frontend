@@ -1,0 +1,22 @@
+<mat-card class="enter-form">
+    <mat-card-title class="title">{{this.enterForm.type === 'SELLER' ? 'Create chat and send token to buyer' : 'Connect to chat by token'}}</mat-card-title>
+  <mat-card-content>
+    <form name="enter-form" autocomplete="off">
+      <mat-form-field class="mat-block">
+        <input matInput placeholder="Your nickname" [(ngModel)]="this.enterForm.name" name="name">
+      </mat-form-field>
+      <mat-form-field class="mat-block">
+        <mat-select placeholder="Select type" [(ngModel)]="this.enterForm.type" name="type">
+          <mat-option value="SELLER">Seller</mat-option>
+          <mat-option value="BUYER">Buyer</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="mat-block">
+        <input matInput placeholder="Token (40 symbols)" [(ngModel)]="this.enterForm.token" name="token">
+      </mat-form-field>
+
+      <button mat-button *ngIf="enterForm.type === 'SELLER'" class="generate-token" type="button" (click)="generateToken()">Generate token</button>
+      <button mat-button type="button" (click)="connect()">START</button>
+    </form>
+  </mat-card-content>
+</mat-card>

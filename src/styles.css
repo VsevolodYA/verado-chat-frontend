@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+  background-color: orange;
+}
+.enter-form {
+  width: 600px;
+  margin-left: calc(50% - 300px);
+  margin-top: 150px;
+}
+
+.enter-form form {
+  width: 400px;
+  margin-left: calc(50% - 200px);
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+}
+
+.generate-token {
+  font-style: italic;
+}
+
+.mat-block {
+  display: block !important;
+}
+
+.chat-table {
+  width: 100%;
+  overflow-y: scroll;
+  margin-left: calc(50% - 300px);
+}
+
+.chat-table tr td:first-child {
+  width: 15%;
+}
+
+.chat-table tr td:last-child {
+  width: 15%;
+}
+
+.modal {
+  z-index: 200;
+  position: absolute !important;
+}
+
+.incoming-offer {
+  width: 250px;
+  top: 200px;
+  left: calc(50% - 125px);
+}
+
+.incoming-offer .total {
+  margin-bottom: 15px;
+}
+
+.offer-modal {
+  width: 250px;
+  top: 200px;
+  left: 100%;
+}
+
+.base-z-i {
+  z-index: 100;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.chat-wrap {
+  width: 600px;
+  border: solid 2px black;
+  height: 304px;
+  overflow-y: auto;
+}
+
+.chat-wrap h4 {
+  font-weight: normal;
+}
+
+.chat-table tr, .chat-table tr td {
+  vertical-align: top;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+chat-page {
+  width: 100%;
+  overflow: hidden;
+}
+
+chat-page .content {
+  margin-left: calc(50% - 300px);
+  margin-top: 100px;
+}
+
+.message-input {
+  margin: 20px 0;
+}
+
+.message-input textarea {
+  width: 600px;
+  height: 50px;
+  resize: none;
+}

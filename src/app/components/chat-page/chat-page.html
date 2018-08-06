@@ -1,0 +1,52 @@
+
+<div class="content">
+  <div class="base-z-i chat-wrap" #scrollBottom >
+    <h4 class="title" *ngIf="! messages.length">Currently no messages.</h4>
+    <table mat-table class="chat-table">
+      <tr *ngFor="let message of messages">
+        <td class="text-center">{{message.senderName}}</td>
+        <td class="text-left">
+          {{message.text}}
+          <div *ngIf="message.offer">
+            {{ (message.senderName === currentName ? "You made an offer: " : "You were offered: ")
+              + message.offer.amount + " amount by " + message.offer.price + " $"
+            }}
+            <br>
+            {{"STATUS: " + message.offer.status}}
+          </div>
+        </td>
+        <td class="text-right">{{message.time  | date: 'shortTime'}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <form name="post-message" class="base-z-i">
+    <div class="mat-block message-input">
+      <textarea [(ngModel)]="messageToPost" name="message" placeholder="Type message"></textarea>
+    </div>
+    <button mat-button type="button" (click)="postMessage()">Send message</button>
+    <button mat-button type="button" (click)="toggleOfferModal()">Send offer</button>
+  </form>
+
+</div>
+
+<mat-card class="modal incoming-offer" [@appear]="incomingOfferAppear">
+  <h4 class="title">You were offered</h4>
+  <h5 class="title">{{incomingOffer.amount}} items x {{incomingOffer.price}} $</h5>
+  <div class="title total">TOTAL: {{(incomingOffer.amount * incomingOffer.price)}} $</div>
+  <button mat-button class="left" (click)="sendOfferResponse('ACCEPTED')">ACCEPT</button>
+  <button mat-button class="right" (click)="sendOfferResponse('REJECTED')">REJECT</button>
+</mat-card>
+
+<mat-card class="modal offer-modal" [@slideInOut]="offerModalSlide">
+  <mat-form-field class="mat-block">
+    <input matInput placeholder="Price" name="price" [(ngModel)]="price" type="number">
+  </mat-form-field>
+  <mat-form-field class="mat-block">
+    <input matInput placeholder="Amount" name="amount" [(ngModel)]="amount" type="number">
+  </mat-form-field>
+  <button mat-button class="left" type="button" (click)="postMessage()">SEND</button>
+  <button mat-button class="right" type="button" (click)="toggleOfferModal()">CLOSE</button>
+</mat-card>
